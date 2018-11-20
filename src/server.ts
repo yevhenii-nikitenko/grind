@@ -1,10 +1,11 @@
 import cluster from 'cluster';
 import app from './app';
+import os from 'os';
 
 const PORT: number = 2323
 
 if (cluster.isMaster) {
-    const cpus: number = require('os').cpus().length;
+    const cpus: number = os.cpus().length;
     for (let i = 0; i < cpus; i += 1) {
         cluster.fork();
     }
