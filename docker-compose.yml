@@ -1,0 +1,10 @@
+version: "2"
+services:
+  node:
+    build: .
+    container_name: grind
+    command: yarn dev
+    ports:
+      - "2323:2323"
+    volumes:
+      - .:/usr/src/grind
