@@ -1,0 +1,11 @@
+{
+    "env": "dev",
+    "app": {
+        "host": "dev.grind",
+        "port": 2323,
+        "prefix": "/api"
+    },
+    "logger": {
+        "level": "info"
+    }
+}

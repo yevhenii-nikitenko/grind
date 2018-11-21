@@ -1,8 +1,7 @@
 import cluster from 'cluster';
 import app from './app';
 import os from 'os';
-
-const PORT: number = 2323
+import config from './config/config';
 
 if (cluster.isMaster) {
     const cpus: number = os.cpus().length;
@@ -14,8 +13,8 @@ if (cluster.isMaster) {
         cluster.fork();
     });
 } else {
-    app.listen(PORT, () => {
-        console.log(`worker ${cluster.worker.id} is working on port ${PORT}...`);
+    app.listen(config.app.port, config.app.host, () => {
+        console.log(`worker ${cluster.worker.id} is working on port ${config.app.port}...`);
     });
 }
 

@@ -1,10 +1,11 @@
 
 import { createLogger, transports, format } from 'winston';
 import path from 'path';
-import fs from 'fs';
+//import fs from 'fs';
+import config from '../config/config';
 
 const logger = createLogger({
-    level: 'info',
+    level: config.logger.level,
     format: format.combine(
         format.timestamp({
             format: 'YYYY-MM-DD HH:mm:ss'
@@ -14,7 +15,7 @@ const logger = createLogger({
     ),
     transports: [
         new transports.Console({
-            level: 'info',
+            level: config.logger.level,
             handleExceptions: true,
             format: format.combine(
                 format.colorize(),
@@ -24,15 +25,15 @@ const logger = createLogger({
                 }),
             ),
         }),
-        new transports.Stream({
+        /*new transports.Stream({
             stream: fs.createWriteStream(path.join(process.cwd(), 'logs', 'stream.log')),
             level: 'error',
             format: format.combine(
                 format.printf(info => `${info.timestamp} | ${info.message}`),
             ),
-        }),
+        }),*/
         new transports.File({
-            level: 'info',
+            level: config.logger.level,
             handleExceptions: true,
             maxsize: 5242880,
             maxFiles: 5,

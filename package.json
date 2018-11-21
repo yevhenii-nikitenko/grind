@@ -9,9 +9,10 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "develop": "./node_modules/nodemon/bin/nodemon.js",
-    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/server.js\"",
+    "dev": "concurrently --kill-others \"yarn run watch-ts\" \"NODE_ENV=dev PORT=2323 LOG_LEVEL=info yarn run watch-node\"",
     "serve": "node dist/server.js",
     "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/server.js",
     "build-ts": "tsc"
   },
   "dependencies": {
