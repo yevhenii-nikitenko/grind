@@ -1,9 +1,12 @@
 import express, { Application, Request, Response } from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import { router } from './routes/routes';
+import dotenv from 'dotenv';
 import requestLogger from './middleware/requests.logger';
-import { cors } from './middleware/cors';
+import router from './routes/routes';
+import cors from './middleware/cors';
+
+dotenv.config();
 
 const app: Application = express();
 

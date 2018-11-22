@@ -1,0 +1,11 @@
+{
+    "env": "prod",
+    "app": {
+        "host": "grind",
+        "port": 80,
+        "prefix": "/api"
+    },
+    "logger": {
+        "level": "error"
+    }
+}
