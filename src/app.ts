@@ -14,16 +14,18 @@ app.use(cors());
 
 app.use(cookieParser());
 
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+app.use(
+	bodyParser.urlencoded({
+		extended: false,
+	})
+);
 
 app.use(bodyParser.json());
 
 app.use('/', requestLogger, router);
 
 app.use('*', async (req: Request, res: Response) => {
-    res.status(404).send('not found');
+	res.status(404).send('not found');
 });
 
 export = app;

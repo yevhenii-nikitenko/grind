@@ -7,6 +7,6 @@ const normalizePort = (val: string) => {
         return port;
     }
     return false;
-}
+};
 
 export default normalizePort;

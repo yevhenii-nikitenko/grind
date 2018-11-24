@@ -7,7 +7,7 @@ const cors = () => {
         res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, SN_TOKEN');
         res.setHeader('Access-Control-Allow-Credentials', 'true');
         next();
-    }
-}
+    };
+};
 
 export default cors;

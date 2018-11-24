@@ -1,4 +1,3 @@
-
 import { createLogger, transports, format } from 'winston';
 import path from 'path';
 //import fs from 'fs';
@@ -8,7 +7,7 @@ const logger = createLogger({
     level: config.logger.level,
     format: format.combine(
         format.timestamp({
-            format: 'YYYY-MM-DD HH:mm:ss'
+            format: 'YYYY-MM-DD HH:mm:ss',
         }),
         format.json(),
         format.printf(info => `[${info.timestamp}] ${info.level.toUpperCase()}: ${info.message}`)
@@ -22,7 +21,7 @@ const logger = createLogger({
                 format.label({ label: '|' }),
                 format.printf(info => {
                     return `[${info.timestamp}] ${info.label} ${info.level}: ${info.message}`;
-                }),
+                })
             ),
         }),
         /*new transports.Stream({
@@ -38,10 +37,8 @@ const logger = createLogger({
             maxsize: 5242880,
             maxFiles: 5,
             filename: path.join(process.cwd(), 'logs', 'app.log'),
-        })
-    ]
+        }),
+    ],
 });
 
-export {
-    logger
-};
+export { logger };
