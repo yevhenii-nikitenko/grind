@@ -5,7 +5,7 @@ import Account from '../../oanda/account';
 const API: Router = Router();
 
 API.get('/test', (req, res) => {
-	Account.account('101-004-9834176-001')
+	Account.accountSummary('101-004-9834176-001')
 		.then(accounts => {
 			res.send(accounts);
 		})
