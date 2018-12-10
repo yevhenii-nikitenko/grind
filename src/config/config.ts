@@ -1,7 +1,8 @@
 import fs from 'fs';
 import normalizePort from '../utils/normalize-port';
 
-const { NODE_ENV, LOG_LEVEL, PORT } = process.env;
+const { LOG_LEVEL, PORT } = process.env;
+const NODE_ENV = process.env.NODE_ENV || 'default';
 
 const config = JSON.parse(fs.readFileSync(`${__dirname}/${NODE_ENV}.config.json`, 'utf8'));
 

@@ -8,8 +8,11 @@
   "private": true,
   "scripts": {
     "start": "ts-node src/server.ts",
+    "docker-destroy": "./shell/docker-destroy.sh",
     "develop": "./node_modules/nodemon/bin/nodemon.js",
-    "dev": "concurrently --kill-others \"yarn run watch-ts\" \"NODE_ENV=dev PORT=2323 LOG_LEVEL=info yarn run watch-node\"",
+    "dev:local": "NODE_ENV=dev PORT=2323 LOG_LEVEL=info yarn dev",
+    "dev:docker": "NODE_ENV=default PORT=2323 LOG_LEVEL=info yarn dev",
+    "dev": "concurrently --kill-others \"yarn run watch-ts\" \" yarn run watch-node\"",
     "serve": "node dist/server.js",
     "watch-ts": "tsc -w",
     "watch-node": "nodemon dist/server.js",

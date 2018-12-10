@@ -4,6 +4,8 @@ import os from 'os';
 import config from './config/config';
 
 if (cluster.isMaster) {
+	console.log(`host: ${config.app.host}`);
+	console.log(`env: ${config.env}`);
 	const cpus: number = os.cpus().length;
 	for (let i = 0; i < cpus; i += 1) {
 		cluster.fork();

@@ -3,8 +3,11 @@ services:
   node:
     build: .
     container_name: grind
-    command: yarn dev
+    command: yarn dev:docker
     ports:
-      - "2323:2323"
+      - "127.0.0.1:2323:2323"
+    extra_hosts:
+      dev.grind: 127.0.0.1
+      localhost: 127.0.0.1
     volumes:
       - .:/usr/src/grind

@@ -1,0 +1,11 @@
+{
+    "env": "default",
+    "app": {
+        "host": "localhost",
+        "port": 2323,
+        "prefix": "/api"
+    },
+    "logger": {
+        "level": "info"
+    }
+}

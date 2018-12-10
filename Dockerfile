@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 2323
 
-CMD [ "yarn", "dev" ]
+CMD [ "yarn", "dev:docker" ]
