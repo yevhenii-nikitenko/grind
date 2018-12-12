@@ -1,12 +1,19 @@
 import express, { Application, Request, Response } from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
 import requestLogger from './middleware/requests.logger';
 import router from './routes/routes';
 import cors from './middleware/cors';
 
-dotenv.config();
+import Signal from './services/signal';
+import Pricing from './oanda/pricing';
+
+const pricing = new Pricing('101-004-9834176-001');
+const signal = new Signal(pricing);
+signal.runStream();
+signal.priceStream.on('tick', (data) => {
+	console.log('tick: ', data)
+})
 
 const app: Application = express();
 

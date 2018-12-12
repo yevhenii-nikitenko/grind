@@ -1,7 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import cluster from 'cluster';
 import app from './app';
 import os from 'os';
 import config from './config/config';
+import * as io from 'socket.io';
 
 if (cluster.isMaster) {
 	console.log(`host: ${config.app.host}`);
